@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: 13px Helvetica, Arial;
+}
+
+.cover{
+    position: absolute;
+    transition: opacity .7s linear;
+    z-index: 999;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right:0;
+    opacity:1;
+    background-color: rgba(0,0,0,.7);
+}
+
+.cover.hide{
+    opacity:0;
+    z-index: -999;
+}
+
+.cover input{
+    text-align: center;
+    width:200px;
+    height:40px;
+    font-size: 18px;
+    position: absolute;
+    top:340px;
+    left:50%;
+    line-height: 40px;
+    padding:5px;
+    margin: 0 0 0 -100px;
+    border: 2px solid #eee;
+    background: #4522A;
+    border:none;
+    border-radius: 5px;
+}
+.cover input#roomId{
+    top:250px;
+}
+
+.cover button{
+    width:80px;
+    padding:2px;
+    position: absolute;
+    top:420px;
+    left:50%;
+    margin: 0 0 0 -40px;
+    border: 2px solid #eee;
+    background: #4522A;
+    line-height: 20px;
+    border:none;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+form {
+    background: #000;
+    padding: 3px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+form input {
+    border: 0;
+    padding: 10px;
+    width: 90%;
+    margin-right: .5%;
+}
+
+form button {
+    width: 9%;
+    background: rgb(130, 224, 255);
+    border: none;
+    padding: 10px;
+}
+
+#messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+#messages li {
+    padding: 5px 10px;
+}
+
+#messages li:nth-child(odd) {
+    background: #eee;
+}
+
+li.connect{
+    color:#ddd;
+    text-align: center;
+}
