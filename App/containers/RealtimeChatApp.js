@@ -12,17 +12,20 @@ export default class RealtimeChatApp extends Component {
   }
 
   render() {
-    const {messages, dispatch} = this.props;
+    const {messages, userInfo, dispatch} = this.props;
     let messagesArr = [];
     messages.map((message, index) => {
       messagesArr.push(<Message message={message} key={index}/>);
     });
     return (
-        <div>
-            <ul>
-              {messagesArr}
-            </ul>
-            <UserCreator emitSocketEvent={this.initSocketAction.emitSocketEvent} dispatch={dispatch}/>
+        <div id="RealtimeChatApp">
+            <h2 className="title">弹幕啦啦啦</h2>
+            <div className="message-list">
+                <ul>
+                  {messagesArr}
+                </ul>
+            </div>
+            {!userInfo.nick ? <UserCreator emitSocketEvent={this.initSocketAction.emitSocketEvent} dispatch={dispatch}/> : ''}
             <MsgEditor emitSocketEvent={this.initSocketAction.emitSocketEvent}/>
         </div>
     );
@@ -30,5 +33,8 @@ export default class RealtimeChatApp extends Component {
 }
 
 export default connect(state => {
-  return {messages: state.messages}
+  return {
+      messages: state.messages,
+      userInfo: state.userInfo
+  }
 })(RealtimeChatApp);

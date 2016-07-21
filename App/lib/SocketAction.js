@@ -1,6 +1,6 @@
 import io from 'socket.io-client';
 import {initMessages, addMessage} from '../actions';
-const socket = io('http://localhost:8000');
+const socket = io('http://192.183.3.122:3002',{reconnect: true});
 
 export default class SocketAction {
   constructor(dispatch) {

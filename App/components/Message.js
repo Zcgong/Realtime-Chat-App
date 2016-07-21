@@ -21,8 +21,11 @@ export default class Message extends Component {
     case 'message':
       return (
         <li className = "message-item message-message" >
-          <span className="message-item__user">{message.user}: </span>
-          <span className="message-item__msg">{message.msg}</span>
+          <div className="message-item__avatar">{message.user.slice(0,1)}</div>
+          <div className="message-item__content">
+              <p className="message-item__user">{message.user}</p>
+              <p className="message-item__msg">{message.msg}</p>
+          </div>
         </li>
       );
       break;

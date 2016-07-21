@@ -7,7 +7,7 @@ var io = require('socket.io')(http);
 var bodyParser = require('body-parser');
 
 var config = {
-  port: 8000
+  port: 3002
 };
 
 app.use(bodyParser.json());
@@ -15,7 +15,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 io.on('connection', function (socket) {
   socket.broadcast.on('user connect', (data) => {
-    console.log(socket);
     socket.nick = data.nick;
     socket.nick ? io.emit('user connect', socket.nick) : '';
   });
